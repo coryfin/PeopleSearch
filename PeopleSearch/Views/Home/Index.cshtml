@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-inline" onsubmit="search(); return false">
+            <div class="form-group">
+                <input type="text" class="form-control" id="searchBox" placeholder="Search people" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Search" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12" id="searching" hidden>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Searching...</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" id="results" hidden></div>
+    <div class="col-md-12" id="no-results" hidden>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Sorry, no results found :(</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function search() {
+        $(".person").remove();
+        $("#results").hide();
+        $("#no-results").hide();
+        $("#searching").show();
+        var q = $("#searchBox").val();
+        var url = location.protocol + "//" + location.host + "/api/people?q=" + q;
+        $.get(url, function (data) {
+            $("#searching").hide();
+            if (data.length > 0) {
+                $("#results").show();
+                for (var i = 0; i < data.length; i++) {
+
+                    var personRow = $("<div/>").attr("class", "row person");
+
+                    // Build the info column
+                    var infoCol = $("<div/>").attr("class", "col-md-4");
+                    var nameElem = $("<p/>")
+                        .attr("class", "h4")
+                        .text(data[i].firstName + " " + data[i].lastName);
+                    var addressElem = $("<p/>")
+                        .append(data[i].street)
+                        .append("<br/>")
+                        .append(data[i].city + ", " + data[i].state + " " + data[i].zipCode);
+                    var age = moment().diff(moment(data[i].birthDate), 'years');
+                    var ageElem = $("<p/>")
+                        .text(age + " years old");
+                    infoCol.append(nameElem).append(addressElem).append(ageElem);
+
+                    // Build the interest column
+                    var interestsCol = $("<div/>").attr("class", "col-md-4");
+                    var interestsHeader = $("<p/>")
+                        .attr("class", "h4")
+                        .text("Interests");
+                    var interestsElem = $("<ul/>");
+                    if (data[i].interests != null) {
+                        for (var j = 0; j < data[i].interests.length; i++) {
+                            interestsElem.append($("<li/>").text(data[i].interests[j]));
+                        }
+                    }
+                    interestsCol.append(interestsHeader).append(interestsElem);
+
+                    // Build the image column
+                    var imageCol = $("<div/>").attr("class", "col-md-4");
+
+                    // Add the person row to the document
+                    personRow.append("<hr/>").append(infoCol).append(interestsCol).append(imageCol);
+                    $("#results").append(personRow);
+                }
+            }
+            else {
+                $("#no-results").show();
+            }
+        });
+    }
+</script>
