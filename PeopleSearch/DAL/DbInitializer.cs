@@ -13,22 +13,27 @@ namespace PeopleSearch.DAL
         {
             var people = new List<Person>
             {
-            new Person{FirstName="Carson", LastName="Alexander", BirthDate=DateTime.Parse("1991-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Meredith", LastName="Alonso", BirthDate=DateTime.Parse("1989-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Arturo", LastName="Anand", BirthDate=DateTime.Parse("1994-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Gytis", LastName="Barzdukas", BirthDate=DateTime.Parse("1985-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Yan", LastName="Li", BirthDate=DateTime.Parse("1986-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Peggy", LastName="Justice", BirthDate=DateTime.Parse("1990-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Laura", LastName="Norman", BirthDate=DateTime.Parse("2003-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"},
-            new Person{FirstName="Nino", LastName="Olivetto", BirthDate=DateTime.Parse("1982-09-01"), Interests = new List<Interest>(),
-                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555"}
+            new Person{FirstName="Carson", LastName="Alexander", BirthDate=DateTime.Parse("1991-09-01"),
+                Street="465 Aspen Grove", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp1.jpg", Interests = new List<Interest>()},
+            new Person{FirstName="Meredith", LastName="Alonso", BirthDate=DateTime.Parse("1989-09-01"),
+                Street="123 Elm Street", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp6.jpg", Interests = new List<Interest>()},
+            new Person{FirstName="Jason", LastName="Bourne", BirthDate=DateTime.Parse("1970-09-01"),
+                Street="729 Evergreen Street", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp2.jpg", Interests = new List<Interest>()},
+            new Person{FirstName="Jared", LastName="Smith", BirthDate=DateTime.Parse("1985-09-01"),
+                Street="68 Birch Street", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp5.jpg", Interests = new List<Interest>()},
+            new Person{FirstName="Elizabeth", LastName="Wright", BirthDate=DateTime.Parse("1986-09-01"),
+                Street="34 Spruce Lane", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp4.jpg", Interests = new List<Interest>()},
+            new Person{FirstName="Laura", LastName="Norman", BirthDate=DateTime.Parse("1975-09-01"),
+                Street="13 Maple Circle", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp3.jpg", Interests = new List<Interest>()},
+            new Person{FirstName="Dan", LastName="Brown", BirthDate=DateTime.Parse("1976-09-01"),
+                Street="51 Ash Street", City="New York", State="NY", ZipCode="55555",
+                ImageUrl="/content/images/emp7.jpg", Interests = new List<Interest>()}
             };
 
             var interests = new List<Interest>
@@ -57,7 +62,7 @@ namespace PeopleSearch.DAL
             people[5].Interests.Add(interests[4]);
             people[6].Interests.Add(interests[5]);
 
-            people.ForEach(s => context.People.Add(s));
+            people.ForEach(p => context.People.Add(p));
             context.SaveChanges();
         }
     }

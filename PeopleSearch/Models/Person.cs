@@ -16,6 +16,6 @@ namespace PeopleSearch.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string ImageUrl { get; set; }
-        public ICollection<Interest> Interests { get; set; }
+        public virtual ICollection<Interest> Interests { get; set; }
     }
 }

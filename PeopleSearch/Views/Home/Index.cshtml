@@ -38,7 +38,8 @@
         $("#no-results").hide();
         $("#searching").show();
         var q = $("#searchBox").val();
-        var url = location.protocol + "//" + location.host + "/api/people?q=" + q;
+        var urlPrefix = location.protocol + "//" + location.host;
+        var url = urlPrefix + "/api/people?q=" + q;
         $.get(url, function (data) {
             $("#searching").hide();
             if (data.length > 0) {
@@ -68,14 +69,20 @@
                         .text("Interests");
                     var interestsElem = $("<ul/>");
                     if (data[i].interests != null) {
-                        for (var j = 0; j < data[i].interests.length; i++) {
-                            interestsElem.append($("<li/>").text(data[i].interests[j]));
+                        for (var j = 0; j < data[i].interests.length; j++) {
+                            interestsElem.append($("<li/>").text(data[i].interests[j].title));
                         }
                     }
                     interestsCol.append(interestsHeader).append(interestsElem);
 
                     // Build the image column
-                    var imageCol = $("<div/>").attr("class", "col-md-4");
+                    var imageCol = $("<div/>").attr("class", "col-md-2");
+                    if (data[i].imageUrl != null) {
+                        var imageElem = $("<img/>")
+                            .attr("class", "img-responsive")
+                            .attr("src", urlPrefix + "/" + data[i].imageUrl);
+                        imageCol.append(imageElem);
+                    }
 
                     // Add the person row to the document
                     personRow.append("<hr/>").append(infoCol).append(interestsCol).append(imageCol);
