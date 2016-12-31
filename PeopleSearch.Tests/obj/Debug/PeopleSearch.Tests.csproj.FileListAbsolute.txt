@@ -14,7 +14,6 @@ C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\roslyn\VBCSC
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\PeopleSearch.Tests.dll.config
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\PeopleSearch.Tests.dll
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\PeopleSearch.Tests.pdb
-C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\PeopleSearch.dll
@@ -45,3 +44,9 @@ C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\System.Net.H
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\obj\Debug\PeopleSearch.Tests.csprojResolveAssemblyReference.cache
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\obj\Debug\PeopleSearch.Tests.dll
 C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\obj\Debug\PeopleSearch.Tests.pdb
+C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Castle.Core.dll
+C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Moq.dll
+C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Castle.Core.xml
+C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\coryfin\Projects\PeopleSearch\PeopleSearch.Tests\bin\Debug\Moq.xml
