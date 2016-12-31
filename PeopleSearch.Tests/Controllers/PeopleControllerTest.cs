@@ -48,7 +48,7 @@ namespace PeopleSearch.Tests.Controllers
             // Arrange
             var data = people;
 
-            var mockRepository = new Mock<PersonRepository>();
+            var mockRepository = new Mock<IPersonRepository>();
             mockRepository.Setup(m => m.GetAllPeople()).Returns(data);
 
             PeopleController controller = new PeopleController(mockRepository.Object);
@@ -68,7 +68,7 @@ namespace PeopleSearch.Tests.Controllers
             string q = "alex";
             var data = people;
 
-            var mockRepository = new Mock<PersonRepository>();
+            var mockRepository = new Mock<IPersonRepository>();
             mockRepository.Setup(m => m.SearchPeople(It.Is<string>(s => s.Equals(q)))).Returns(data);
 
             PeopleController controller = new PeopleController(mockRepository.Object);
@@ -88,7 +88,7 @@ namespace PeopleSearch.Tests.Controllers
             string q = "carson";
             var data = people;
 
-            var mockRepository = new Mock<PersonRepository>();
+            var mockRepository = new Mock<IPersonRepository>();
             mockRepository.Setup(m => m.SearchPeople(It.Is<string>(s => s.Equals(q)))).Returns(new List<Person> { data[0] });
 
             PeopleController controller = new PeopleController(mockRepository.Object);
@@ -108,7 +108,7 @@ namespace PeopleSearch.Tests.Controllers
             string q = "jason";
             var data = people;
 
-            var mockRepository = new Mock<PersonRepository>();
+            var mockRepository = new Mock<IPersonRepository>();
             mockRepository.Setup(m => m.SearchPeople(It.Is<string>(s => s.Equals(q)))).Returns(new List<Person>());
 
             PeopleController controller = new PeopleController(mockRepository.Object);

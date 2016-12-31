@@ -4,11 +4,10 @@ using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using Moq;
-using PeopleSearch.Controllers;
 using PeopleSearch.DAL;
 using PeopleSearch.Models;
 
-namespace PeopleSearch.Tests.Controllers
+namespace PeopleSearch.Tests.DAL
 {
     [TestClass]
     public class PersonRepositoryTest
@@ -93,7 +92,7 @@ namespace PeopleSearch.Tests.Controllers
         public void SearchPeople_one()
         {
             // Arrange
-            string q = "Carson";
+            string q = "carson";
             var data = people.AsQueryable();
             var mockDbSet = new Mock<DbSet<Person>>();
             mockDbSet.As<IQueryable<Person>>().Setup(m => m.Provider).Returns(data.Provider);

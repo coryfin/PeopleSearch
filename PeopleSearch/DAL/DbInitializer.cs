@@ -36,31 +36,28 @@ namespace PeopleSearch.DAL
                 ImageUrl="/content/images/emp7.jpg", Interests = new List<Interest>()}
             };
 
-            var interests = new List<Interest>
-            {
-            new Interest{Title="Soccer"},
-            new Interest{Title="Football"},
-            new Interest{Title="Mountain Biking"},
-            new Interest{Title="Running"},
-            new Interest{Title="Choir"},
-            new Interest{Title="Band"},
-            new Interest{Title="Orchestra"}
-            };
+            var soccerInterest = new Interest { Title = "Soccer" };
+            var footballInterest = new Interest { Title = "Football" };
+            var mountainBikingInterest = new Interest { Title = "Mountain Biking" };
+            var runningInterest = new Interest { Title = "Running" };
+            var choirInterest = new Interest { Title = "Choir" };
+            var bandInterest = new Interest { Title = "Band" };
+            var orchestraInterest = new Interest { Title = "Orchestra" };
 
-            people[0].Interests.Add(interests[0]);
-            people[0].Interests.Add(interests[1]);
-            people[0].Interests.Add(interests[2]);
-            people[1].Interests.Add(interests[4]);
-            people[1].Interests.Add(interests[5]);
-            people[1].Interests.Add(interests[6]);
-            people[2].Interests.Add(interests[2]);
-            people[2].Interests.Add(interests[4]);
-            people[3].Interests.Add(interests[1]);
-            people[3].Interests.Add(interests[5]);
-            people[4].Interests.Add(interests[2]);
-            people[4].Interests.Add(interests[3]);
-            people[5].Interests.Add(interests[4]);
-            people[6].Interests.Add(interests[5]);
+            people[0].Interests.Add(soccerInterest);
+            people[0].Interests.Add(footballInterest);
+            people[0].Interests.Add(mountainBikingInterest);
+            people[1].Interests.Add(choirInterest);
+            people[1].Interests.Add(bandInterest);
+            people[1].Interests.Add(orchestraInterest);
+            people[2].Interests.Add(mountainBikingInterest);
+            people[2].Interests.Add(choirInterest);
+            people[3].Interests.Add(footballInterest);
+            people[3].Interests.Add(bandInterest);
+            people[4].Interests.Add(mountainBikingInterest);
+            people[4].Interests.Add(runningInterest);
+            people[5].Interests.Add(choirInterest);
+            people[6].Interests.Add(bandInterest);
 
             people.ForEach(p => context.People.Add(p));
             context.SaveChanges();

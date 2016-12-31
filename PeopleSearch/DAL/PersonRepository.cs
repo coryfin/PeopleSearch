@@ -8,16 +8,24 @@ namespace PeopleSearch.DAL
 {
     public class PersonRepository : IPersonRepository
     {
-        private PeopleSearchContext _context = new PeopleSearchContext();
+        private PeopleSearchContext _context;
 
-        public virtual IEnumerable<Person> GetAllPeople()
+        public PersonRepository(PeopleSearchContext context)
+        {
+            _context = context;
+        }
+
+    public virtual IEnumerable<Person> GetAllPeople()
         {
             return _context.People.ToList();
         }
 
         public virtual IEnumerable<Person> SearchPeople(string q)
         {
-            return _context.People.Where(p => p.FirstName.Contains(q) || p.LastName.Contains(q)).ToList();
+            return _context.People.Where(p => 
+                    p.FirstName.ToLower().Contains(q.ToLower()) || 
+                    p.LastName.ToLower().Contains(q.ToLower()))
+                .ToList();
         }
 
         public void Dispose()
