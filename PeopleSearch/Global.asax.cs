@@ -15,6 +15,7 @@ namespace PeopleSearch
     {
         protected void Application_Start()
         {
+            DbInitializationHandler.Initialize();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

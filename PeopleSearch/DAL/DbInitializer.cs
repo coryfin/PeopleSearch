@@ -7,7 +7,7 @@ using PeopleSearch.Models;
 
 namespace PeopleSearch.DAL
 {
-    public class DbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<PeopleSearchContext>
+    public class DbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PeopleSearchContext>
     {
         protected override void Seed(PeopleSearchContext context)
         {
@@ -61,6 +61,20 @@ namespace PeopleSearch.DAL
 
             people.ForEach(p => context.People.Add(p));
             context.SaveChanges();
+        }
+    }
+
+    public static class DbInitializationHandler
+    {
+        public static void Initialize()
+        {
+            Database.SetInitializer(new DbInitializer());
+            using (var db = new PeopleSearchContext())
+            {
+                {
+                    db.Database.Initialize(true);
+                }
+            }
         }
     }
 }
